@@ -1,13 +1,13 @@
-import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
-
+import { MdAlternateEmail } from "react-icons/md"
 import work1 from "./assets/musicil.jpg";
 import work2 from "./assets/surfshop.jpg";
 import work3 from "./assets/portfolio-project.jpg";
 
 export const navLinks = ["home", "about", "skills", "portfolio", "contact"]
 
-export const socialIcons = [<FaLinkedin />, <FaGithub />]
+export const socialIcons = [{ icon: <FaLinkedin />, link: "https://www.linkedin.com/in/gilrahamim/" }, { icon: <FaGithub />, link: "https://github.com/GilRahamim98" }]
 
 
 export const bios = [
@@ -25,7 +25,7 @@ export const bios = [
     },
     {
         id: 3,
-        icon: <FaPaperPlane />,
+        icon: <MdAlternateEmail />,
         key: "Email",
         value: "gilrahamimgr@gmail.com"
     }
