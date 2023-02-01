@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Navbar.scss"
 import { navLinks, socialIcons } from '../../Data'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
-import { Variant, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
+    const [scroll, setScroll] = useState(false);
 
     const menuVariants = {
         hidden: {
@@ -32,8 +33,16 @@ const Navbar = () => {
             }
         }
     }
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            setScroll(window.scrollY > 20)
+        })
+    }, [])
     return (
-        <div className='header'>
+        <motion.div initial={{ y: -25 }}
+            animate={{ y: -5 }}
+            transition={{ duration: 0.5 }}
+            className={scroll ? "header active" : "header"}>
             <div className='Nav_container'>
                 <div className='logo'>
                     <h3>G</h3>
@@ -77,7 +86,7 @@ const Navbar = () => {
 
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 
