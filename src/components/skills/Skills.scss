@@ -1,0 +1,61 @@
+.select {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+
+    button {
+        color: #000;
+        background: #fff;
+        padding: 0.65rem 1rem;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        text-transform: capitalize;
+        cursor: pointer;
+        border: none;
+        margin-top: 1rem;
+        font-family: "Poppins";
+
+        &.active {
+            background: #8c12f0;
+            color: #fff;
+        }
+    }
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    row-gap: 4rem;
+
+    @media screen and(max-width: 500px) {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 1.5rem;
+        row-gap: 2rem;
+        column-gap: 4rem;
+    }
+
+    .tools {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        svg {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+        }
+
+        h3 {
+            color: #fff;
+        }
+
+        .short_level {
+            padding-left: 20px;
+        }
+    }
+}
