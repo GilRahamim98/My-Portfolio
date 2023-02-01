@@ -1,6 +1,10 @@
 import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
 
+import work1 from "./assets/musicil.jpg";
+import work2 from "./assets/surfshop.jpg";
+import work3 from "./assets/portfolio-project.jpg";
+
 export const navLinks = ["home", "about", "skills", "portfolio", "contact"]
 
 export const socialIcons = [<FaLinkedin />, <FaGithub />]
@@ -60,4 +64,32 @@ export const skills = [
         skill: <SiPhp />,
         level: "Basic"
     },
+]
+
+export const projects = [
+    {
+        id: 1,
+        img: work1,
+        name: "MusicIL",
+        category: "web",
+        link: "https://musicil.netlify.app/",
+        githubLink: "https://github.com/GilRahamim98/MusicIL"
+    },
+    {
+        id: 2,
+        img: work2,
+        name: "Surf Shop",
+        category: "web",
+        link: "https://surfi.cyclic.app/",
+        githubLink: "https://github.com/GilRahamim98/SurfShop"
+    },
+    {
+        id: 3,
+        img: work3,
+        name: "Portfolio",
+        category: "web",
+        link: "",
+        githubLink: "https://github.com/GilRahamim98/My-Portfolio"
+    },
+
 ]
