@@ -1,7 +1,5 @@
-import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaFigma, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub } from "react-icons/fa";
-import { DiJavascript } from "react-icons/di";
-import { SiTypescript } from "react-icons/si";
-import { BsMedium } from "react-icons/bs";
+import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub } from "react-icons/fa";
+import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
 
 export const navLinks = ["home", "about", "skills", "portfolio", "contact"]
 
@@ -27,4 +25,39 @@ export const bios = [
         key: "Email",
         value: "gilrahamimgr@gmail.com"
     }
+]
+
+export const skills = [
+    {
+        skill: <FaHtml5 />,
+        level: "Expert"
+    },
+    {
+        skill: <FaCss3 />,
+        level: "Expert"
+    },
+    {
+        skill: <SiJavascript />,
+        level: "Expert"
+    },
+    {
+        skill: <FaNodeJs />,
+        level: "Expert"
+    },
+    {
+        skill: <FaReact />,
+        level: "Expert"
+    },
+    {
+        skill: <SiTypescript />,
+        level: "Intermediate"
+    },
+    {
+        skill: <FaSass />,
+        level: "Basic"
+    },
+    {
+        skill: <SiPhp />,
+        level: "Basic"
+    },
 ]
