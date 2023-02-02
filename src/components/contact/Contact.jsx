@@ -166,18 +166,21 @@ const Contact = () => {
                     {contactForm.name.errors.length > 0 && <p>{contactForm.name.errors[0].value}</p>}
 
                     <div className="row">
-                        <input type="text" placeholder='Name' name="name" defaultValue={contactForm.name.text} onBlur={handleChange} />
+                        <input type="text" placeholder='Name' style={contactForm.name.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} name="name" defaultValue={contactForm.name.text} onBlur={handleChange} />
                     </div>
                     {contactForm.phone.errors.length > 0 && <p>{contactForm.phone.errors[0].value}</p>}
-                    {contactForm.email.errors.length > 0 && <p>{contactForm.email.errors[0].value}</p>}
                     <div className="row">
-                        <input type="text" placeholder='Phone' name="phone" defaultValue={contactForm.phone.text} onBlur={handleChange} />
-                        <input type="email" placeholder='Email' name="email" defaultValue={contactForm.email.text} onBlur={handleChange} />
+                        <input type="text" placeholder='Phone' name="phone" defaultValue={contactForm.phone.text} onBlur={handleChange} style={contactForm.phone.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} />
+                    </div>
+                    {contactForm.email.errors.length > 0 && <p>{contactForm.email.errors[0].value}</p>}
+
+                    <div className="row">
+                        <input type="email" placeholder='Email' name="email" defaultValue={contactForm.email.text} onBlur={handleChange} style={contactForm.email.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} />
                     </div>
                     {contactForm.message.errors.length > 0 && <p>{contactForm.message.errors[0].value}</p>}
 
                     <div className="row">
-                        <textarea placeholder='message' name="message" defaultValue={contactForm.message.text} onBlur={handleChange}></textarea>
+                        <textarea placeholder='Message' name="message" defaultValue={contactForm.message.text} onBlur={handleChange} style={contactForm.message.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}}></textarea>
                     </div>
                     <motion.div
                         whileHover={{ scale: 1.1 }}
