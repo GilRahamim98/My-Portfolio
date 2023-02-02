@@ -3,33 +3,117 @@ import "./Contact.scss";
 import { bios, socialIcons } from '../../Data'
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { validate } from '../../validations'
 
 
 const Contact = () => {
+    const [contactForm, setContactForm] = useState({
+        name: {
+            text: "",
+            validations: {
+                required: true,
+                minLength: 2,
+            },
+            errors: [],
 
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
+        },
+        phone: {
+            text: "",
+            validations: {
+                required: true,
+                minLength: 2,
+            },
+            errors: [],
+
+        },
+        email: {
+            text: "",
+            validations: {
+                required: true,
+                pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            },
+            errors: [],
+
+        },
+        message: {
+            text: "",
+            validations: {
+                required: true,
+                minLength: 3,
+            },
+            errors: [],
+
+        }
+    })
     const [infoMessage, setInfoMessage] = useState({ text: "", success: null })
-    const sendEmail = () => {
-        const templateParams = {
-            from_name: name,
-            reply_to: email,
-            phone,
-            message
-        };
-        emailjs.send('service_x00fiap', 'template_79sftjl', templateParams, '3RjYBqpGX6nzoxOAN')
-            .then((result) => {
-                setInfoMessage({ text: "Email Sent!", success: true })
-                setName("")
-                setPhone("")
-                setEmail("")
-                setMessage("")
-            }, (error) => {
-                setInfoMessage({ text: "An Error occurred please try again!", success: false })
 
-            });
+
+    const handleChange = ({ target: { name, value } }) => {
+        const currentInput = contactForm[name]
+        currentInput.text = value
+        currentInput.errors = validate(name, value, currentInput.validations)
+        setContactForm({ ...contactForm })
+    }
+
+    const validateInput = (input, value = "") => {
+        const currentInput = contactForm[input]
+        currentInput.text = value
+        currentInput.errors = []
+        if (currentInput.validations.required) {
+            if (value.length === 0) {
+                currentInput.errors.push({
+                    value: `${input} is required`
+                })
+            }
+        }
+        if (currentInput.validations.minLength) {
+            if (value.length < currentInput.validations.minLength) {
+                currentInput.errors.push({
+                    value: `${input} is must be at least ${currentInput.validations.minLength} characters`
+                })
+            }
+        }
+        if (currentInput.validations.pattern) {
+            if (!currentInput.validations.pattern.test(value)) {
+                currentInput.errors.push({
+                    value: `${input} is invalid`
+                })
+            }
+        }
+    }
+
+
+    const sendEmail = () => {
+
+        let isValidSubmit = true
+        for (let field in contactForm) {
+            validateInput(field, contactForm[field].text)
+            if (contactForm[field].errors.length > 0) {
+                isValidSubmit = false
+            }
+            setContactForm({ ...contactForm })
+        }
+        if (isValidSubmit) {
+            const templateParams = {
+                from_name: contactForm.name.text,
+                reply_to: contactForm.email.text,
+                phone: contactForm.phone.text,
+                message: contactForm.message.text
+            };
+            emailjs.send('service_x00fiap', 'template_79sftjl', templateParams, '3RjYBqpGX6nzoxOAN')
+                .then((result) => {
+                    setInfoMessage({ text: "Email Sent!", success: true })
+                    for (const field in contactForm) {
+                        contactForm[field].text = ""
+                        setContactForm({ ...contactForm })
+                    }
+                }, (error) => {
+                    setInfoMessage({ text: "An Error occurred please try again!", success: false })
+
+                });
+        }
+
+
 
     }
 
@@ -79,16 +163,24 @@ const Contact = () => {
 
                 >
                     <h3>Get In Touch</h3>
+                    {contactForm.name.errors.length > 0 && <p>{contactForm.name.errors[0].value}</p>}
 
                     <div className="row">
-                        <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder='Name' style={contactForm.name.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} name="name" defaultValue={contactForm.name.text} onBlur={handleChange} />
                     </div>
+                    {contactForm.phone.errors.length > 0 && <p>{contactForm.phone.errors[0].value}</p>}
                     <div className="row">
-                        <input type="text" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                        <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="text" placeholder='Phone' name="phone" defaultValue={contactForm.phone.text} onBlur={handleChange} style={contactForm.phone.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} />
                     </div>
+                    {contactForm.email.errors.length > 0 && <p>{contactForm.email.errors[0].value}</p>}
+
                     <div className="row">
-                        <textarea placeholder='message' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                        <input type="email" placeholder='Email' name="email" defaultValue={contactForm.email.text} onBlur={handleChange} style={contactForm.email.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}} />
+                    </div>
+                    {contactForm.message.errors.length > 0 && <p>{contactForm.message.errors[0].value}</p>}
+
+                    <div className="row">
+                        <textarea placeholder='Message' name="message" defaultValue={contactForm.message.text} onBlur={handleChange} style={contactForm.message.errors.length > 0 ? { border: "1px #8c12f0 solid", backgroundColor: "#8c12f040" } : {}}></textarea>
                     </div>
                     <motion.div
                         whileHover={{ scale: 1.1 }}
