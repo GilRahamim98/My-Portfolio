@@ -57,7 +57,7 @@ const Contact = () => {
 
     const validateInput = (input, value = "") => {
         const currentInput = contactForm[input]
-        currentInput.value = value
+        currentInput.text = value
         currentInput.errors = []
         if (currentInput.validations.required) {
             if (value.length === 0) {
@@ -86,8 +86,8 @@ const Contact = () => {
     const sendEmail = () => {
 
         let isValidSubmit = true
-        for (const field in contactForm) {
-            validateInput(field, contactForm[field].value)
+        for (let field in contactForm) {
+            validateInput(field, contactForm[field].text)
             if (contactForm[field].errors.length > 0) {
                 isValidSubmit = false
             }
@@ -174,6 +174,8 @@ const Contact = () => {
                         <input type="text" placeholder='Phone' name="phone" defaultValue={contactForm.phone.text} onBlur={handleChange} />
                         <input type="email" placeholder='Email' name="email" defaultValue={contactForm.email.text} onBlur={handleChange} />
                     </div>
+                    {contactForm.message.errors.length > 0 && <p>{contactForm.message.errors[0].value}</p>}
+
                     <div className="row">
                         <textarea placeholder='message' name="message" defaultValue={contactForm.message.text} onBlur={handleChange}></textarea>
                     </div>
