@@ -3,6 +3,7 @@ import "./Navbar.scss"
 import { navLinks, socialIcons } from '../../Data'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
+import { Link } from "react-scroll";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
@@ -51,7 +52,7 @@ const Navbar = () => {
                 <ul className="nav_links">
                     {navLinks.map((navLink, index) => {
                         return <li key={index}>
-                            <a href={`${navLink}`}>{navLink}</a>
+                            <Link activeClass="active" smooth='easeInOutQuint' offset={-10} duration={500} spy to={`${navLink}`}>{navLink}</Link>
                         </li>
                     })}
                 </ul>
