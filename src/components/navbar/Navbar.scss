@@ -29,7 +29,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
     }
 
     .social_icons {
@@ -142,6 +141,8 @@
 
     li {
         margin-left: 3rem;
+        cursor: pointer;
+
 
         @media screen and (max-width: 800px) {
             display: none;
@@ -158,6 +159,11 @@
             &:hover {
                 opacity: 1;
             }
+        }
+
+        .active {
+            font-weight: bold;
+            opacity: 1;
         }
     }
 }
