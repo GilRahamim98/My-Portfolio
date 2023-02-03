@@ -88,7 +88,7 @@ export const projects = [
         img: work3,
         name: "Portfolio",
         category: "web",
-        link: "",
+        link: "https://gil-rahamim.netlify.app/",
         githubLink: "https://github.com/GilRahamim98/My-Portfolio"
     },
 
