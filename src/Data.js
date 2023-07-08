@@ -69,14 +69,6 @@ export const skills = [
 export const projects = [
     {
         id: 1,
-        img: work1,
-        name: "MusicIL",
-        category: "web",
-        link: "https://musicil.netlify.app/",
-        githubLink: "https://github.com/GilRahamim98/MusicIL"
-    },
-    {
-        id: 2,
         img: work2,
         name: "Surf Shop",
         category: "web",
@@ -84,7 +76,7 @@ export const projects = [
         githubLink: "https://github.com/GilRahamim98/SurfShop"
     },
     {
-        id: 3,
+        id: 2,
         img: work3,
         name: "Portfolio",
         category: "web",
