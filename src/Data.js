@@ -1,7 +1,7 @@
-import { FaHtml5, FaCss3, FaNodeJs, FaReact, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaNodeJs, FaReact,FaAngular, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
 import { MdAlternateEmail } from "react-icons/md"
-import work1 from "./assets/musicil.jpg";
+import work1 from "./assets/ITUBEZ.jpg";
 import work2 from "./assets/surfshop.jpg";
 import work3 from "./assets/portfolio-project.jpg";
 
@@ -57,6 +57,10 @@ export const skills = [
         level: "Intermediate"
     },
     {
+        skill: <FaAngular />,
+        level: "Intermediate"
+    },
+    {
         skill: <FaSass />,
         level: "Basic"
     },
@@ -82,6 +86,14 @@ export const projects = [
         category: "web",
         link: "https://gil-rahamim.netlify.app/",
         githubLink: "https://github.com/GilRahamim98/My-Portfolio"
+    },
+        {
+        id: 2,
+        img: work1,
+        name: "Itubez",
+        category: "web",
+        link: "https://itubez.netlify.app/",
+        githubLink: "https://github.com/GilRahamim98/youtube-clone"
     },
 
 ]
