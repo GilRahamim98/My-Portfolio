@@ -64,10 +64,6 @@ export const skills = [
         skill: <FaSass />,
         level: "Basic"
     },
-    {
-        skill: <SiPhp />,
-        level: "Basic"
-    },
 ]
 
 export const projects = [
