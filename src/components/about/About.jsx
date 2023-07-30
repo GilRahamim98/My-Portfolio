@@ -3,7 +3,7 @@ import './About.scss'
 import { motion } from 'framer-motion';
 import portfolio from '../../assets/portfolio.jpeg'
 import { bios } from '../../Data';
-import cv from '../../assets/CV Gil Rahamim.pdf'
+import cv from '../../assets/Gil_Rahamim_CV.pdf'
 
 const About = () => {
     return (
