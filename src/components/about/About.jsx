@@ -3,7 +3,7 @@ import './About.scss'
 import { motion } from 'framer-motion';
 import portfolio from '../../assets/portfolio.jpeg'
 import { bios } from '../../Data';
-import cv from '../../assets/Gil_Rahamim_CV.pdf'
+
 
 const About = () => {
     return (
@@ -41,12 +41,7 @@ const About = () => {
                             </div>
                         )
                     })}
-                    <motion.a href={cv} download
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        Download CV
-                    </motion.a>
+                    
                 </motion.div>
 
             </div>
