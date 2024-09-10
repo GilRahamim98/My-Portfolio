@@ -72,7 +72,7 @@ export const projects = [
         img: work2,
         name: "Surf Shop",
         category: "web",
-        link: "https://surfi.cyclic.app/",
+        link: "https://surfi.onrender.com",
         githubLink: "https://github.com/GilRahamim98/SurfShop"
     },
     {
