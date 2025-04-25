@@ -1,9 +1,11 @@
-import { FaHtml5, FaCss3, FaNodeJs, FaReact,FaAngular, FaSass, FaPhoneAlt, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiTypescript, SiPhp, SiJavascript } from "react-icons/si";
+import { FaHtml5, FaCss3, FaNodeJs, FaReact,FaAngular, FaDocker , FaPhoneAlt, FaUser, FaLinkedin, FaGithub,FaPython } from "react-icons/fa";
+import { TbBrandCSharp,TbSql  } from "react-icons/tb";
+import { SiTypescript, SiJavascript,SiMongodb  } from "react-icons/si";
 import { MdAlternateEmail } from "react-icons/md"
 
 import work2 from "./assets/surfshop.jpg";
 import work3 from "./assets/portfolio-project.jpg";
+import work4 from "./assets/academiax.png";
 
 export const navLinks = ["home", "about", "skills", "portfolio", "contact"]
 
@@ -33,37 +35,42 @@ export const bios = [
 
 export const skills = [
     {
-        skill: <FaHtml5 />,
-        level: "Expert"
+        skill: <TbBrandCSharp />,
     },
     {
-        skill: <FaCss3 />,
-        level: "Expert"
+        skill: <FaPython />,
     },
     {
         skill: <SiJavascript />,
-        level: "Expert"
-    },
-    {
-        skill: <FaNodeJs />,
-        level: "Expert"
-    },
-    {
-        skill: <FaReact />,
-        level: "Expert"
     },
     {
         skill: <SiTypescript />,
-        level: "Intermediate"
+    },
+    {
+        skill: <FaNodeJs />,
+    },
+    {
+        skill: <FaReact />,
     },
     {
         skill: <FaAngular />,
-        level: "Intermediate"
     },
     {
-        skill: <FaSass />,
-        level: "Basic"
+        skill: <TbSql />,
     },
+    {
+        skill: <SiMongodb />,
+    },
+    {
+        skill: <FaDocker  />,
+    },
+    {
+        skill: <FaHtml5 />,
+    },
+    {
+        skill: <FaCss3 />,
+    },
+
 ]
 
 export const projects = [
@@ -82,6 +89,14 @@ export const projects = [
         category: "web",
         link: "https://gil-rahamim.netlify.app/",
         githubLink: "https://github.com/GilRahamim98/My-Portfolio"
+    },
+    {
+        id: 3,
+        img: work4,
+        name: "AcademiaX",
+        category: "web",
+        githubLinkBackend: "https://github.com/GilRahamim98/LearningPlatform",
+        githubLinkFrontend: "https://github.com/GilRahamim98/LearningPlatform-Frontend"
     },
 
 

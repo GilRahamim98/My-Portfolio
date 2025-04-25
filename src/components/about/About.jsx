@@ -11,6 +11,7 @@ const About = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ y: [-50, 0], opacity: 1 }}
+                viewport={{ once: true }}
                 className="title">
                 <span>Who Am I?</span>
                 <h1>About Me</h1>

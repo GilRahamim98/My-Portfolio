@@ -18,6 +18,7 @@ const Portfolio = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ y: [-50, 0], opacity: 1 }}
+                viewport={{ once: true }}
                 className="title"
 
             >
@@ -44,22 +45,45 @@ const Portfolio = () => {
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
                                 className='hoverLayer'
                             >
+                                {
+                                    work.id === 3 ? <>
+                                        <motion.a href={work.githubLinkBackend} target="_blank"
+                                            whileInView={{ scale: [0, 1] }}
+                                            whileHover={{ scale: [1, 1.1] }}
+                                            transition={{ duration: 0.3 }}
+                                            title="View Backend Code"
+                                        >
+                                            <FiGithub />
+                                        </motion.a>
 
-                                <motion.a href={work.githubLink} target="_blank"
-                                    whileInView={{ scale: [0, 1] }}
-                                    whileHover={{ scale: [1, 1.1] }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <FiGithub />
-                                </motion.a>
+                                        <motion.a href={work.githubLinkFrontend} target="_blank"
+                                            whileInView={{ scale: [0, 1] }}
+                                            whileHover={{ scale: [1, 1.1] }}
+                                            transition={{ duration: 0.3 }}
+                                            title="View Frontend Code"
+                                        >
+                                            <FiGithub />
+                                        </motion.a>
+                                    </> :
+                                        <>
+                                            <motion.a href={work.githubLink} target="_blank"
+                                                whileInView={{ scale: [0, 1] }}
+                                                whileHover={{ scale: [1, 1.1] }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <FiGithub />
+                                            </motion.a>
 
-                                <motion.a href={work.link} target="_blank"
-                                    whileInView={{ scale: [0, 1] }}
-                                    whileHover={{ scale: [1, 1.1] }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <FiEye />
-                                </motion.a>
+                                            <motion.a href={work.link} target="_blank"
+                                                whileInView={{ scale: [0, 1] }}
+                                                whileHover={{ scale: [1, 1.1] }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <FiEye />
+                                            </motion.a>
+                                        </>
+                                }
+
                             </motion.div>
                         </div>
                     )
